@@ -29,18 +29,18 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Terraform Init
-        working-directory: ./InfrastructureAsCode/Week39
+        working-directory: /Week39
         run: terraform init -input=false
 
       - name: Terraform Validate
-        working-directory: ./InfrastructureAsCode/Week39
+        working-directory: /Week39
         run: terraform validate
 
       - name: Terraform Plan (hardcoded vars)
-        working-directory: ./InfrastructureAsCode/Week39
+        working-directory: /Week39
         run: terraform plan
 
       - name: Terraform Apply (only on main)
         if: github.ref == 'refs/heads/main'
-        working-directory: ./InfrastructureAsCode/Week39
+        working-directory: /Week39
         run: terraform apply -auto-approve
