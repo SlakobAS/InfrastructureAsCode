@@ -15,8 +15,8 @@ Run: Import-TfvarsVariables.ps1
 
 # E.g i dev
 ./Import-TfvarsVariables.ps1 `
-     -KeyVaultName "kv-tfstate-o8xb7l" `
-     -TfvarsFilePath "../environments/dev/dev.tfvars"
+>>      -KeyVaultName "kv-tfstate-it33xz" `
+>>      -TfvarsFilePath "../environments/dev/dev.tfvars"
 
 ```
 

@@ -1,4 +1,4 @@
-resource_group_name  = "rg-tfstate-o8xb7l"
-storage_account_name = "sttfstateo8xb7l"
+resource_group_name  = "rg-tfstate-it33xz"
+storage_account_name = "sttfstateit33xz"
 container_name       = "tfstate"
 use_azuread_auth     = true
