@@ -18,7 +18,7 @@ jobs:
     env:
       # Oppdater disse to stiene til din repo-struktur
       WORKDIR: "Week39/environments/dev"
-      BACKEND_HCL: "../shared/backend.hcl"
+      BACKEND_HCL: "../../shared/backend.hcl"
 
     steps:
       - name: Checkout
