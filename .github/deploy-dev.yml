@@ -1,4 +1,4 @@
-name: Terraform Remote State Simple RG
+name: Deploy RG to dev 
 
 on:
   workflow_dispatch: {}  # manuell trigger i starten
