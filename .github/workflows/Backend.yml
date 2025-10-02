@@ -15,6 +15,7 @@ permissions:
 jobs:
   backend:
     runs-on: ubuntu-latest
+    environment: dev
     env:
       WORKDIR: Week39/backend
       BACKEND_HCL: Week39/shared/backend.hcl
