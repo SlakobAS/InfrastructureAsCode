@@ -18,7 +18,7 @@ jobs:
     environment: dev
     env:
       WORKDIR: Week39/backend
-      BACKEND_HCL: Week39/shared/backend.hcl
+      BACKEND_HCL: ../shared/backend.hcl
 
     steps:
       - name: Checkout repository
