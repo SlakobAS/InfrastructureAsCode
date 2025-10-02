@@ -48,7 +48,7 @@ jobs:
 
       - name: Terraform Init (bootstrapping backend)
         working-directory: ${{ env.WORKDIR }}
-        run: terraform init -input=false -backend-config=${{ env.BACKEND_HCL }}
+        run: terraform init -input=false -backend-config=${{ env.BACKEND_HCL }} -backend-config="key=projects/backend/terraform.tfstate"
 
       - name: Terraform Validate
         working-directory: ${{ env.WORKDIR }}
