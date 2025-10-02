@@ -1,0 +1,62 @@
+name: Terraform Backend Update
+
+on:
+  push:
+    paths:
+      - "Week39/backend/**"
+      - "Week39/shared/**"
+      - ".github/workflows/backend.yml"
+  workflow_dispatch: {} # manual trigger
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    env:
+      WORKDIR: Week39/backend
+      BACKEND_HCL: Week39/shared/backend.hcl
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.x
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id:       ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id:       ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Export ARM_* for Terraform (OIDC)
+        run: |
+          {
+            echo "ARM_USE_OIDC=true"
+            echo "ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}"
+            echo "ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}"
+            echo "ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+          } >> $GITHUB_ENV
+
+      - name: Terraform Init (bootstrapping backend)
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform init -input=false -backend-config=${{ env.BACKEND_HCL }}
+
+      - name: Terraform Validate
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform validate
+
+      - name: Terraform Plan
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform plan -input=false
+
+      - name: Terraform Apply (only on main)
+        if: github.ref == 'refs/heads/main'
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform apply -auto-approve -input=false
