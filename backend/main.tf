@@ -5,7 +5,7 @@ terraform {
     # see backend.hcl for non-secret settings
     # use_azuread_auth = true  # uncomment to use Azure AD auth (instead of access key)
   }
-
+  
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"

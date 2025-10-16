@@ -1,11 +1,11 @@
 name: Terraform Backend Update
 
 on:
-  push:
-    paths:
-      - "Week39/backend/**"
-      - "Week39/shared/**"
-      - ".github/workflows/backend.yml"
+  #push:
+  #  paths:
+  #    - "backend/**"
+  #    - "shared/**"
+  #    - ".github/workflows/backend.yml"
   workflow_dispatch: {} # manual trigger
 
 permissions:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      WORKDIR: Week39/backend
+      WORKDIR: backend
       BACKEND_HCL: ../shared/backend.hcl
 
     steps:
