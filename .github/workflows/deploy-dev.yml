@@ -2,10 +2,10 @@ name: Deploy RG to dev
 
 on:
   workflow_dispatch: {}  # manuell trigger i starten
-  push:
-    paths:
-      - "Week39/environments/dev/**"
-      - ".github/workflows/deploy-dev.yml"
+  #push:
+  #  paths:
+  #    - "Mandatory2/environments/dev/**"
+  #    - ".github/workflows/deploy-dev.yml"
 
 permissions:
   id-token: write
@@ -17,8 +17,8 @@ jobs:
     environment: dev
     env:
       # Oppdater disse to stiene til din repo-struktur
-      WORKDIR: "Week39/environments/dev"
-      BACKEND_HCL: "../../shared/backend.hcl"
+      WORKDIR: "Mandatory2/environments/dev"
+      BACKEND_HCL: "../../../shared/backend.hcl"
 
     steps:
       - name: Checkout

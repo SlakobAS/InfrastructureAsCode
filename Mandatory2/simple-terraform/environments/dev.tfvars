@@ -1,0 +1,5 @@
+environment  = "dev"
+location     = "norwayeast"
+project_name = "demo"
+account_tier = "Standard"
+account_replication_type = "LRS"
