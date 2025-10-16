@@ -1,0 +1,5 @@
+environment  = "prod"
+location     = "norwayeast"
+project_name = "demo"
+account_tier = "Premium"
+account_replication_type = "GRS"
