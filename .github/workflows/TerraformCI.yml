@@ -19,7 +19,7 @@ jobs:
     environment: dev
     env:
       WORKDIR: "Mandatory2/simple-terraform"
-      BACKEND_HCL: "../../shared/backend.hcl"
+      BACKEND_HCL: "shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       
@@ -77,7 +77,7 @@ jobs:
     environment: ${{ matrix.environment }}
     env:
       WORKDIR: "Mandatory2/simple-terraform"
-      BACKEND_HCL: "../../shared/backend.hcl"
+      BACKEND_HCL: "shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
     
