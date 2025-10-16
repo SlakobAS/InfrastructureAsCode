@@ -127,7 +127,7 @@ jobs:
           # Kjør plan og fang både stdout og stderr
           set +e  # Ikke stopp ved feil
           terraform plan -no-color \
-            -var-file="${{ env.WORKDIR }}/environments/${{ matrix.environment }}.tfvars" \
+            -var-file="../environments/${{ matrix.environment }}.tfvars" \
             -out=${{ matrix.environment }}.tfplan \
             2>&1 | tee plan-output.txt
           PLAN_EXIT_CODE=${PIPESTATUS[0]}
