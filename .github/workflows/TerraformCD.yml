@@ -81,6 +81,7 @@ jobs:
       BACKEND_HCL: "shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
+      ENVIRONMENT: "test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -139,6 +140,7 @@ jobs:
       BACKEND_HCL: "shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
+      ENVIRONMENT: "prod"
     
     steps:
       - name: Checkout code
