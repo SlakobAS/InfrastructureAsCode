@@ -120,7 +120,7 @@ jobs:
         working-directory: ${{ env.WORKDIR }}/terraform
         run: |
           terraform apply -auto-approve \
-            -var-file="${{ github.workspace }}/${{ env.WORKDIR }}/environments/${{ env.ENVIRONMENT }}.tfvars" \
+            -var-file="../environments/${{ env.ENVIRONMENT }}.tfvars"
       
       - name: Terraform Output
         working-directory: ${{ env.WORKDIR }}/terraform
@@ -179,7 +179,7 @@ jobs:
         working-directory: ${{ env.WORKDIR }}/terraform
         run: |
           terraform apply -auto-approve \
-            -var-file="${{ github.workspace }}/${{ env.WORKDIR }}/environments/${{ env.ENVIRONMENT }}.tfvars" \
+            -var-file="../environments/${{ env.ENVIRONMENT }}.tfvars"
       
       - name: Terraform Output
         working-directory: ${{ env.WORKDIR }}/terraform
