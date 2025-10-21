@@ -1,6 +1,6 @@
 # Random suffix for unique naming
 resource "random_string" "suffix" {
-  length  = 6
+  length  = 5
   special = false
   upper   = false
 }
